@@ -1,0 +1,380 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden; /* Prevent horizontal scroll when sidebar is open */
+}
+
+.parent-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensure the parent container takes up the full height */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap; /* Allow header items to wrap on small screens */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 20px;
+    border-radius: 8px;
+    border: 2px solid #FFD700;
+    margin-right: 5%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 2px 0 0 2px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    background-color: #FFD700;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 2px 2px 0;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-weight: bold;
+}
+
+.search-bar button:hover {
+    background-color: #FFA000;
+    border-color: #ffc45e;
+}
+
+.user-options button {
+    margin-left: 10px;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+.user-options .icon {
+    margin-right: 5px;
+    color: #FFD700;
+}
+
+/* Sidebar Toggle Button Styles */
+.sidebar-toggle {
+    background-color: #4a91e200;
+    border: none;
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    font-size: x-large;
+    transform: translateY(-50%);
+}
+
+.sidebar-toggle:hover {
+    background-color: #3579bd00;
+}
+
+/* Hide cross icon by default and show hamburger icon */
+#close-icon {
+    display: none;
+}
+
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Start completely hidden off the screen */
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(135deg, #6e45e2, #88d3ce);
+    color: #fff;
+    padding: 1rem;
+    transition: left 0.5s ease; /* Smooth transition */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 2000; /* Ensure sidebar is above other content */
+    margin-top: 60px;
+    left: -100%; /* Sidebar starts off the screen */
+}
+
+.sidebar.open {
+    left: 0; /* Slide in to show */
+}
+
+
+/* Hide cross icon by default and show hamburger icon */
+#close-icon {
+    display: none;
+}
+
+.sidebar.open #menu-icon {
+    display: none;
+}
+
+.sidebar.open #close-icon {
+    display: block;
+}
+
+.author-info {
+    margin-top: 100%;
+    padding-top: 20px;
+    border-top: 5px solid rgba(67, 67, 67, 0.411);
+}
+
+.author-info h3, .author-info h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #f8f8f8;
+}
+
+.author-info p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: var(--paragraph-color-dark); /* Default to dark theme color */
+}
+
+.author-info p a {
+    font-size: 18px;
+    color: #000000fa;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.author-info p a:hover {
+    text-decoration: underline;
+}
+
+.controls {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.controls select,
+.controls input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.controls button {
+    padding: 0.5rem 1rem;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.controls button:hover {
+    background-color: #357abd;
+    transform: scale(1.05);
+}
+
+.controls i {
+    font-size: 1.2rem;
+}
+
+button:focus {
+    outline: none;
+}
+
+#signature-img-light {
+    display: none; /* Hide the light signature by default */
+}
+
+#signature-img-dark {
+    display: block; /* Show the dark signature by default */
+}
+
+/* =======================================Dark Mode================================= */
+.dark-mode {
+    background-color: #333;
+}
+
+.dark-mode .sidebar-toggle {
+    color: #fff;
+}
+
+.dark-mode header {
+    background: #121212;
+}
+
+.dark-mode .author-info h3 {
+    color: #FFD700;
+}
+
+.dark-mode .sidebar {
+    background: #121212;
+}
+
+.dark-mode .controls select,
+.dark-mode .controls input[type="text"] {
+    border-color: #444;
+    background-color: #333;
+    color: #FFD700;
+}
+
+.dark-mode .controls button {
+    background-color: #444;
+    color: #FFD700;
+}
+
+.dark-mode .controls button:hover {
+    background-color: #555;
+}
+
+/* Gallery Styles */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem;
+}
+
+figure {
+    margin: 0;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    width: calc(15% - 1rem);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 100; /* Ensure figures are below the sidebar */
+}
+
+figure:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+img:hover {
+    opacity: 0.8;
+    transform: scale(1.03);
+}
+
+figcaption {
+    text-align: center;
+    padding: 0.5rem;
+    background-color: #f8f8f8;
+    color: #333;
+    position: relative;
+}
+
+.copy-link {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: #FFD700;
+    border: none;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s;
+}
+
+.copy-link:hover {
+    background-color: #FFA000;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .sidebar-toggle {
+        right: 20px; /* Adjust position on smaller screens */
+    }
+
+    .gallery figure {
+        width: calc(25% - 1rem); /* Two columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .search-bar {
+        display: flex; /* Ensure the search bar is visible */
+        width: calc(100% - 400px); /* Adjust width to fit */
+        margin: 10px 50px;
+    }
+
+    .sidebar {
+        width: 200px;
+        z-index: 2000; /* Ensure sidebar is above other content */
+    }
+
+    .gallery figure {
+        width: calc(20% - 1rem); /* Two columns on small screens */
+    }
+
+    header h1 {
+        margin-bottom: 10px; /* Add space below the title */
+    }
+
+    .sidebar-toggle {
+        top: 20px; /* Adjust toggle button position */
+        right: 10px;
+        transform: none; /* Remove vertical centering */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .gallery figure {
+        width: 25%; /* One column on very small screens */
+    }
+
+    .sidebar {
+        width: 180px; /* Narrower sidebar for very small screens */
+        z-index: 2000; /* Ensure sidebar is above other content */
+        margin-top: 70px;
+    }
+}
